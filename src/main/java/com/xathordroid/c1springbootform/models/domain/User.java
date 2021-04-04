@@ -3,6 +3,14 @@ package com.xathordroid.c1springbootform.models.domain;
 import javax.validation.constraints.NotEmpty;
 
 public class User {
+
+    private String identifier;
+    
+    @NotEmpty
+    private String firstName;
+    
+    @NotEmpty
+    private String lastName;
     
     @NotEmpty
     private String username;
@@ -12,6 +20,27 @@ public class User {
 
     @NotEmpty
     private String email;
+
+    public String getIdentifier() {
+        return identifier;
+    }
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getUsername() {
         return username;

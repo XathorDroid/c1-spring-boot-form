@@ -7,32 +7,36 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
+@SessionAttributes("user")
 public class FormController {
     
     @GetMapping({ "", "/", "/index" })
     public String getForm(Model model) {
-        model.addAttribute("user", new User());
+        User user = new User();
+        user.setFirstName("John");
+        user.setLastName("Doe");
+        user.setIdentifier("123.456.789-G");
+        
+        model.addAttribute("user", user);
+        
         return "form";
     }
     
     @PostMapping("/save")
-    public String saveForm(@Valid @ModelAttribute("user") User userCreated, BindingResult result, Model model) {
+    public String saveForm(@Valid @ModelAttribute("user") User userCreated, BindingResult result, Model model, SessionStatus sessionStatus) {
         if (result.hasErrors()) {
-            Map<String, String> errors = new HashMap<>();
-            result.getFieldErrors().forEach(error -> {
-                errors.put(error.getField(), "El campo ".concat(error.getField()).concat(" ").concat(error.getDefaultMessage()));
-            });
-            model.addAttribute("errors", errors);
             return "form";
         }
         
         model.addAttribute("user", userCreated);
+        
+        sessionStatus.setComplete();
         
         return "result";
     } 

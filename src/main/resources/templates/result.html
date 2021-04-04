@@ -8,9 +8,12 @@
 <h2>Form Result</h2>
 
 <ul>
+    <li th:text="${user.getFirstName()}"></li>
+    <li th:text="${user.getLastName()}"></li>
     <li th:text="${user.getUsername()}"></li>
     <li th:text="${user.getPassword()}"></li>
     <li th:text="${user.getEmail()}"></li>
+    <li th:text="${user.getIdentifier()}"></li>
 </ul>
 </body>
 </html>
