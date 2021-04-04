@@ -1,9 +1,16 @@
 package com.xathordroid.c1springbootform.models.domain;
 
+import javax.validation.constraints.NotEmpty;
+
 public class User {
     
+    @NotEmpty
     private String username;
+
+    @NotEmpty
     private String password;
+
+    @NotEmpty
     private String email;
 
     public String getUsername() {
