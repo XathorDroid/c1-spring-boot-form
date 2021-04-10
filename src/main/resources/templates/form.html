@@ -8,6 +8,14 @@
 <h2>User register</h2>
 <form th:action="@{/save}" method="post" th:object="${user}">
     <div>
+        <label for="identifier">Identifier</label>
+        <div>
+            <input type="text" id="identifier" th:field="*{identifier}" />
+        </div>
+        <div th:if="${#fields.hasErrors('identifier')}" th:errors="*{identifier}"></div>
+    </div>
+    <br />
+    <div>
         <label for="firstName">First Name</label>
         <div>
             <input type="text" id="firstName" th:field="*{firstName}" />
