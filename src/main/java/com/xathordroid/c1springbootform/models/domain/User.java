@@ -1,5 +1,8 @@
 package com.xathordroid.c1springbootform.models.domain;
 
+import com.xathordroid.c1springbootform.validators.IdentifierRegex;
+import com.xathordroid.c1springbootform.validators.Required;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -7,6 +10,7 @@ import javax.validation.constraints.Size;
 
 public class User {
 
+    @IdentifierRegex
     private String identifier;
     
     @NotEmpty(message = "Debe intrducir un nombre")
@@ -18,7 +22,7 @@ public class User {
     @Size(min = 3, max = 8)
     private String username;
 
-    @NotEmpty
+    @Required
     private String password;
 
     @NotEmpty
