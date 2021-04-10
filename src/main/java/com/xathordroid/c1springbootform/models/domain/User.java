@@ -3,18 +3,15 @@ package com.xathordroid.c1springbootform.models.domain;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class User {
 
-    @Pattern(regexp = "[\\d]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]")
     private String identifier;
     
     @NotEmpty(message = "Debe intrducir un nombre")
     private String firstName;
     
-    @NotEmpty
     private String lastName;
     
     @NotBlank

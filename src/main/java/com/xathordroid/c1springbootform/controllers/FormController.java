@@ -1,6 +1,8 @@
 package com.xathordroid.c1springbootform.controllers;
 
 import com.xathordroid.c1springbootform.models.domain.User;
+import com.xathordroid.c1springbootform.validators.UserValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,9 @@ import javax.validation.Valid;
 @Controller
 @SessionAttributes("user")
 public class FormController {
+
+    @Autowired
+    private UserValidator userValidator;
     
     @GetMapping({ "", "/", "/index" })
     public String getForm(Model model) {
@@ -30,6 +35,8 @@ public class FormController {
     
     @PostMapping("/save")
     public String saveForm(@Valid @ModelAttribute("user") User userCreated, BindingResult result, Model model, SessionStatus sessionStatus) {
+        userValidation.validate(userCreated, result);
+
         if (result.hasErrors()) {
             return "form";
         }
