@@ -3,10 +3,7 @@ package com.xathordroid.c1springbootform.models.domain;
 import com.xathordroid.c1springbootform.validators.IdentifierRegex;
 import com.xathordroid.c1springbootform.validators.Required;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class User {
 
@@ -28,6 +25,11 @@ public class User {
     @NotEmpty
     @Email(message = "El formato de email no es correcto :)")
     private String email;
+
+    @NotNull
+    @Min(5)
+    @Max(5000)
+    private Integer count;
 
     public String getIdentifier() {
         return identifier;
@@ -69,5 +71,12 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+    public void setCount(Integer count) {
+        this.count = count;
     }
 }

@@ -59,6 +59,15 @@
         <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
     </div>
     <br />
+
+    <div>
+        <label for="count">Count</label>
+        <div>
+            <input type="number" id="count" th:field="*{count}" />
+        </div>
+        <div th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></div>
+    </div>
+    <br />
     
     <div>
         <div>
