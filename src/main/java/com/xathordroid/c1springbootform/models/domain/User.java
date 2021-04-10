@@ -2,8 +2,10 @@ package com.xathordroid.c1springbootform.models.domain;
 
 import com.xathordroid.c1springbootform.validators.IdentifierRegex;
 import com.xathordroid.c1springbootform.validators.Required;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
+import java.util.Date;
 
 public class User {
 
@@ -30,6 +32,10 @@ public class User {
     @Min(5)
     @Max(5000)
     private Integer count;
+
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date birthday;
 
     public String getIdentifier() {
         return identifier;
@@ -78,5 +84,12 @@ public class User {
     }
     public void setCount(Integer count) {
         this.count = count;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }
