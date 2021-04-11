@@ -34,7 +34,7 @@ public class User {
     private Integer count;
 
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Past
     private Date birthday;
 
     public String getIdentifier() {
