@@ -62,6 +62,8 @@ public class FormController {
         user.setIdentifier("123.456.789-G");
         user.setEnabled(true);
         user.setSecretValue("something hidden in front form");
+        user.setCountry(new Country(2, "MEX", "México"));
+        user.setRoles(Arrays.asList(new Role(2, "User", "ROLE_USER")));
         
         model.addAttribute("user", user);
         
