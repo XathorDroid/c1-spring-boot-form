@@ -1,5 +1,6 @@
 package com.xathordroid.c1springbootform.controllers;
 
+import com.xathordroid.c1springbootform.editors.UperCaseTextEditor;
 import com.xathordroid.c1springbootform.models.domain.User;
 import com.xathordroid.c1springbootform.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class FormController {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, "birthday", new CustomDateEditor(dateFormat, true));
+        
+        binder.registerCustomEditor(String.class, "firstName", new UperCaseTextEditor());
     }
     
     @GetMapping({ "", "/", "/index" })
