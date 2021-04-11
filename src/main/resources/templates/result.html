@@ -16,7 +16,7 @@
     <li th:text="${user.getIdentifier()}"></li>
     <li th:text="${user.getCount()}"></li>
     <li th:text="${#dates.format(user.getBirthday(), 'dd/MM/yyyy')}"></li>
-    <li th:text="${user.getCountry()}"></li>
+    <li th:text="${'[' + user.getCountry().getCode() + '] ' + user.getCountry().getName()}"></li>
 </ul>
 </body>
 </html>

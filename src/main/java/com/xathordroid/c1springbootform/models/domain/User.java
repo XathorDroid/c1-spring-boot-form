@@ -2,7 +2,6 @@ package com.xathordroid.c1springbootform.models.domain;
 
 import com.xathordroid.c1springbootform.validators.IdentifierRegex;
 import com.xathordroid.c1springbootform.validators.Required;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.util.Date;
@@ -37,8 +36,8 @@ public class User {
     @Past
     private Date birthday;
     
-    @NotEmpty
-    private String country;
+    @NotNull
+    private Country country;
 
     public String getIdentifier() {
         return identifier;
@@ -96,10 +95,10 @@ public class User {
         this.birthday = birthday;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 }
