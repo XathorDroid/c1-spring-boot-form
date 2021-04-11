@@ -38,6 +38,16 @@
     <br />
     
     <div>
+        <label>Genre</label>
+        <div th:each="genre: ${genres}">
+            <input type="radio" th:field="*{genre}" th:value="${genre}" />
+            <label th:for="${#ids.prev('genre')}" th:text="${genre}"></label>
+        </div>
+        <div th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></div>
+    </div>
+    <br />
+    
+    <div>
         <label for="identifier">Identifier</label>
         <div>
             <input type="text" id="identifier" th:field="*{identifier}" />

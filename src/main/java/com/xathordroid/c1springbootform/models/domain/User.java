@@ -44,6 +44,9 @@ public class User {
     private List<Role> roles;
     
     private Boolean enabled;
+    
+    @NotEmpty
+    private String genre;
 
     public String getIdentifier() {
         return identifier;
@@ -120,5 +123,12 @@ public class User {
     }
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

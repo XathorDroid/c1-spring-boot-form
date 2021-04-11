@@ -18,6 +18,7 @@
     <li th:text="${#dates.format(user.getBirthday(), 'dd/MM/yyyy')}"></li>
     <li th:text="'[' + ${user.getCountry().getCode()} + '] ' + ${user.getCountry().getName()}"></li>
     <li th:text="'Enabled: ' + ${user.getEnabled()}"></li>
+    <li th:text="'Genre: ' + ${user.getGenre()}"></li>
 </ul>
 
 <br />

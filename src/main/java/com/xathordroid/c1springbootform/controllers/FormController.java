@@ -130,4 +130,9 @@ public class FormController {
     public List<Role> loadListRoles() {
         return roleService.list();
     }
+
+    @ModelAttribute("genres")
+    public List<String> loadGenres() {
+        return Arrays.asList("Male", "Female");
+    }
 }
