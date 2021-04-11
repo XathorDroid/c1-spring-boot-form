@@ -18,5 +18,12 @@
     <li th:text="${#dates.format(user.getBirthday(), 'dd/MM/yyyy')}"></li>
     <li th:text="${'[' + user.getCountry().getCode() + '] ' + user.getCountry().getName()}"></li>
 </ul>
+
+<br />
+
+<div>Roles</div>
+<ul>
+    <li th:each="rol: ${user.roles}" th:text="${rol}"></li>
+</ul>
 </body>
 </html>

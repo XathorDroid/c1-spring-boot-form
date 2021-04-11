@@ -5,6 +5,7 @@ import com.xathordroid.c1springbootform.validators.Required;
 
 import javax.validation.constraints.*;
 import java.util.Date;
+import java.util.List;
 
 public class User {
 
@@ -38,6 +39,9 @@ public class User {
     
     @NotNull
     private Country country;
+    
+    @NotEmpty
+    private List<String> roles;
 
     public String getIdentifier() {
         return identifier;
@@ -100,5 +104,12 @@ public class User {
     }
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }

@@ -92,4 +92,15 @@ public class FormController {
     public List<Country> loadListCountries() {
         return countryService.list();
     }
+
+    @ModelAttribute("roles")
+    public List<String> loadRoles() {
+        List<String> roles = new ArrayList<>();
+        
+        roles.add("ROLE_ADMIN");
+        roles.add("ROLE_USER");
+        roles.add("ROLE_MODERATOR");
+        
+        return roles;
+    }
 }
