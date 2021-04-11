@@ -1,10 +1,13 @@
 package com.xathordroid.c1springbootform.controllers;
 
 import com.xathordroid.c1springbootform.editors.CountryPropertyEditor;
+import com.xathordroid.c1springbootform.editors.RolePropertyEditor;
 import com.xathordroid.c1springbootform.editors.UperCaseTextEditor;
 import com.xathordroid.c1springbootform.models.domain.Country;
+import com.xathordroid.c1springbootform.models.domain.Role;
 import com.xathordroid.c1springbootform.models.domain.User;
 import com.xathordroid.c1springbootform.services.ICountryService;
+import com.xathordroid.c1springbootform.services.IRoleService;
 import com.xathordroid.c1springbootform.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -28,9 +31,15 @@ public class FormController {
     
     @Autowired
     private ICountryService countryService;
+
+    @Autowired
+    private IRoleService roleService;
     
     @Autowired
     private CountryPropertyEditor countryPropertyEditor;
+    
+    @Autowired
+    private RolePropertyEditor rolePropertyEditor;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -42,6 +51,7 @@ public class FormController {
         
         binder.registerCustomEditor(String.class, "firstName", new UperCaseTextEditor());
         binder.registerCustomEditor(Country.class, "country", countryPropertyEditor);
+        binder.registerCustomEditor(Role.class, "roles", rolePropertyEditor);
     }
     
     @GetMapping({ "", "/", "/index" })
@@ -113,5 +123,10 @@ public class FormController {
         roles.put("ROLE_MODERATOR", "Moderator");
         
         return roles;
+    }
+
+    @ModelAttribute("listRoles")
+    public List<Role> loadListRoles() {
+        return roleService.list();
     }
 }

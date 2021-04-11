@@ -21,9 +21,9 @@
     
     <div>
         <label>Roles</label>
-        <div th:each="rol: ${mapRoles.entrySet()}">
-            <input type="checkbox" th:field="*{roles}" th:value="${rol.getKey()}" />
-            <label th:for="${#ids.prev('roles')}" th:text="${rol.getValue()}"></label>
+        <div th:each="role: ${listRoles}">
+            <input type="checkbox" th:field="*{roles}" th:value="${role.getId()}" />
+            <label th:for="${#ids.prev('roles')}" th:text="${role.getName()}"></label>
         </div>
         <div th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>
     </div>
