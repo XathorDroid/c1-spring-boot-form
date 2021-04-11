@@ -14,9 +14,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @SessionAttributes("user")
@@ -64,5 +62,19 @@ public class FormController {
     @ModelAttribute("countries")
     public List<String> loadCountries() {
         return Arrays.asList("Spain", "México", "Chile", "England", "The US", "Germany");
+    }
+    
+    @ModelAttribute("mapCountries")
+    public Map<String, String> loadMapCountries() {
+        Map<String, String> countries = new HashMap<>();
+
+        countries.put("ES", "Spain ");
+        countries.put("MEX", "México");
+        countries.put("CH", "Chile");
+        countries.put("ENG", "England");
+        countries.put("US", "The US");
+        countries.put("GER", "Germany");
+                
+        return countries;
     }
 }
