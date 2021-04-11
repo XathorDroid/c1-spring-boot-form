@@ -61,6 +61,7 @@ public class FormController {
         user.setLastName("Doe");
         user.setIdentifier("123.456.789-G");
         user.setEnabled(true);
+        user.setSecretValue("something hidden in front form");
         
         model.addAttribute("user", user);
         

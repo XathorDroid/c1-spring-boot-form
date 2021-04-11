@@ -47,6 +47,8 @@ public class User {
     
     @NotEmpty
     private String genre;
+    
+    private String secretValue;
 
     public String getIdentifier() {
         return identifier;
@@ -130,5 +132,12 @@ public class User {
     }
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public String getSecretValue() {
+        return secretValue;
+    }
+    public void setSecretValue(String secretValue) {
+        this.secretValue = secretValue;
     }
 }
