@@ -60,6 +60,7 @@ public class FormController {
         user.setFirstName("John");
         user.setLastName("Doe");
         user.setIdentifier("123.456.789-G");
+        user.setEnabled(true);
         
         model.addAttribute("user", user);
         

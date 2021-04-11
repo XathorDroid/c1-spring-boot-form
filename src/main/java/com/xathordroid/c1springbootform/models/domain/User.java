@@ -42,6 +42,8 @@ public class User {
     
     @NotEmpty
     private List<Role> roles;
+    
+    private Boolean enabled;
 
     public String getIdentifier() {
         return identifier;
@@ -111,5 +113,12 @@ public class User {
     }
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }
