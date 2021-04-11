@@ -103,4 +103,15 @@ public class FormController {
         
         return roles;
     }
+
+    @ModelAttribute("mapRoles")
+    public Map<String, String> loadMapRoles() {
+        Map<String, String> roles = new HashMap<>();
+        
+        roles.put("ROLE_ADMIN", "Admin");
+        roles.put("ROLE_USER", "User");
+        roles.put("ROLE_MODERATOR", "Moderator");
+        
+        return roles;
+    }
 }
