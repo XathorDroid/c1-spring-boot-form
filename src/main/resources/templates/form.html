@@ -8,6 +8,18 @@
 <h2>User register</h2>
 <form th:action="@{/save}" method="post" th:object="${user}">
     <div>
+        <label for="country">Country</label>
+        <div>
+            <select id="country" th:field="*{country}">
+                <option value="">-- Select country --</option>
+                <option th:each="country: ${countries}" th:text="${country}" th:value="${country}"></option>
+            </select>
+        </div>
+        <div th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></div>
+    </div>
+    <br />
+    
+    <div>
         <label for="identifier">Identifier</label>
         <div>
             <input type="text" id="identifier" th:field="*{identifier}" />
@@ -15,6 +27,7 @@
         <div th:if="${#fields.hasErrors('identifier')}" th:errors="*{identifier}"></div>
     </div>
     <br />
+    
     <div>
         <label for="firstName">First Name</label>
         <div>

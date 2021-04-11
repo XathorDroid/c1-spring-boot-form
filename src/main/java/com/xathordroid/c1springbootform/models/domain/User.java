@@ -36,6 +36,9 @@ public class User {
     @NotNull
     @Past
     private Date birthday;
+    
+    @NotEmpty
+    private String country;
 
     public String getIdentifier() {
         return identifier;
@@ -91,5 +94,12 @@ public class User {
     }
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
