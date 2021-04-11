@@ -76,12 +76,17 @@ public class FormController {
             return "form";
         }
         
-        model.addAttribute("user", userCreated);
+        return "redirect:/show";
+    } 
+    
+    @GetMapping("/show")
+    public String showUser(@SessionAttribute("user") User user, Model model, SessionStatus sessionStatus) {
+        if (user == null) return "redirect:/index";
         
         sessionStatus.setComplete();
         
         return "result";
-    } 
+    }
     
     @ModelAttribute("countries")
     public List<String> loadCountries() {
